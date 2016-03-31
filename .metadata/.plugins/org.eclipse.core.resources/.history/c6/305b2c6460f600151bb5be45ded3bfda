@@ -1,0 +1,25 @@
+package service;
+
+import java.io.File;
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessFile;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+
+public class Parse {
+
+   public static int GetPageNum(File inFile) throws Exception {
+	   PDFParser parser = new PDFParser(new RandomAccessFile(inFile,"r"));
+       parser.parse();
+       COSDocument cosDoc = parser.getDocument();
+//       PDFTextStripper pdfStripper = new PDFTextStripper();
+       PDDocument pdDoc = new PDDocument(cosDoc);
+//       pdDoc.getNumberOfPages();
+//       pdfStripper.setStartPage(1);
+//       pdfStripper.setEndPage(1);
+//       pdfStripper.setEndPage(pdDoc.getNumberOfPages());
+//       String text = pdfStripper.getText(pdDoc);
+       return pdDoc.getNumberOfPages();
+	}
+}

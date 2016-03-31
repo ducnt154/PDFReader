@@ -1,0 +1,27 @@
+package GUI;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+
+class ErrorDialog extends JDialog {
+    private JLabel label = new JLabel("Loading.. ");
+
+    public ProgressBarDialog(JFrame frame) {
+        add(label, BorderLayout.NORTH);
+        add(label, BorderLayout.CENTER);
+        setSize(200, 100);
+        setAlwaysOnTop(true);
+        setLocationRelativeTo(frame);
+        setUndecorated(true);
+        setVisible(true);
+    }
+    
+    public void close() {
+        setVisible(false);
+    }
+}

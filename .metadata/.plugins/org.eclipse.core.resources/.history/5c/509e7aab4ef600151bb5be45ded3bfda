@@ -1,0 +1,108 @@
+package GUI;
+
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+/**
+* The team list view draw information of teams
+* @author jordonmich
+*
+*/
+class TeamViewPanel extends JPanel {
+    public TeamViewPanel() {
+        setPreferredSize(new Dimension(800, 500));        
+    }
+    
+    /**
+     * Draw a row in table view
+     * @param sb main buffer
+     * @param data data with string type
+     */
+    private void drawRow(StringBuffer sb, String[] data) {
+    	sb.append("<tr>");
+	    for (Object columnName : data ) {
+	        sb.append("<th>");
+	        sb.append(columnName);
+	        sb.append("</th>");
+	    }
+	    sb.append("</tr>");
+    }
+    
+    /**
+     * Draw a row in table view
+     * @param sb main buffer
+     * @param data data with int type
+     */
+    private void drawRow(StringBuffer sb, int[] data) {
+    	sb.append("<tr>");
+	    for (Object columnName : data ) {
+	        sb.append("<th style=\"border:1px solid black;\">");
+	        sb.append(columnName);
+	        sb.append("</th>");
+	    }
+	    sb.append("</tr>");
+    }
+
+    /**
+     * Draw rank team view
+     * @param teamNames team names
+     * @param teamConferences team conferences
+     * @param voteRecord vote record
+     */
+	public void drawRankTeams(String[] teamNames, String[] teamConferences, int[][] voteRecord) {
+		StringBuffer sb = new StringBuffer();
+		sb.append("<html><body><table>");
+		drawRow(sb, teamNames);
+		drawRow(sb, teamConferences);
+		for (int i=0; i<voteRecord.length; i++) {
+			drawRow(sb, voteRecord[i]);
+		}
+		sb.append("</table>");
+		draw(sb);
+	}
+
+	/**
+     * Draw detail view
+     * @param rankTeams sorted team list
+     * @param teamNum team number
+     */
+	public void drawDetail(ArrayList<CollegeFootballTeam> rankTeams, int teamNum) {
+		String[] teamNames = new String[teamNum];
+		String[] teamConferences = new String[teamNum];
+		int[] teamVotes = new int[teamNum];
+		for (int i=0; i<rankTeams.size(); i++) {
+			CollegeFootballTeam team = rankTeams.get(i);
+			teamNames[i] = team.getName();
+			teamConferences[i] = team.getConference();
+			teamVotes[i] = team.getSumOfVotes();
+		}
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("<html><body><table>");
+		drawRow(sb, teamNames);
+		drawRow(sb, teamConferences);
+		drawRow(sb, teamVotes);
+		sb.append("</table>");
+		draw(sb);		
+	}
+
+	/**
+     * Reset panel view
+     */
+	public void reset() {
+	    removeAll();
+	    repaint();		
+	}
+
+	/**
+     * Base draw function
+     */
+	private void draw(StringBuffer content) {
+		reset();
+		add(new JLabel(content.toString()));
+	}
+}

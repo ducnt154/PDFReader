@@ -1,0 +1,32 @@
+package service;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.rendering.PDFRenderer;
+
+public class Parser {
+
+   public static ArrayList<BufferedImage> GetPdfComponents(String path) throws Exception {
+		PDDocument pDoc;
+		ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
+		try {
+			pDoc = PDDocument.load(new File(path));
+			PDFRenderer render = new PDFRenderer(pDoc);
+			int pageNum = pDoc.getNumberOfPages();
+			images = new ArrayList<BufferedImage>();
+			for (int index=0; index<pageNum; index++) {
+				images.add(render.renderImage(index));
+			}
+			pDoc.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Input structure is not correct! Please load other one!");
+		}
+		return images;
+   }
+}

@@ -1,0 +1,22 @@
+package service;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+
+public class Parse {
+	public static void readFile(File inFile) throws Exception {
+		output.println("file: " + inFile);
+		String line = "";
+		String cvsSplitBy = ",";
+		int iLoop = 0;
+		BufferedReader br = new BufferedReader(new FileReader(inFile));
+
+	}
+}

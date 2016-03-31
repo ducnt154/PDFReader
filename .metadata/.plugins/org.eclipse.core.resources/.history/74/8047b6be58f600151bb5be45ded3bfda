@@ -1,0 +1,32 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
+
+class ViewPanel extends JPanel {
+    public ViewPanel() {
+        setPreferredSize(new Dimension(800, 500));        
+    }
+
+	public void reset() {
+	    removeAll();
+	    repaint();		
+	}
+
+	public void draw(String path) {
+		reset();
+//		add(new JLabel(content));
+		JWebBrowser fileBrowser = new JWebBrowser();
+		fileBrowser.navigate(path);
+		//this.add(fileBrowser, BorderLayout.CENTER);
+	}
+}

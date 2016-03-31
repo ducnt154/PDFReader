@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="484" key="DIALOG_WIDTH"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="420" key="DIALOG_X_ORIGIN"/>
+		<item value="129" key="DIALOG_Y_ORIGIN"/>
+		<item value="true" key="BUILD_NOW"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/nguyen.duc/Documents/PlayFramework/activator-1.3.7-minimal/test"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="/Users/nguyen.duc/Sites/CI" key="OUTSIDE_LOCATION"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.php.ui.wizards.PHPProjectCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.php.project.ui"/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/core/Model.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/libraries/Log.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/core/Common.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/core/Controller.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/libraries/Session.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/config/config.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/config/database.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/views/main.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/views/welcome2.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/views/header.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/assets/css/main.css&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/application/views/welcome.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/assets/css/dashboard.css&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/CI_sample/system/core/Input.php&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="318" key="DIALOG_X_ORIGIN"/>
+			<item value="56" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+</section>

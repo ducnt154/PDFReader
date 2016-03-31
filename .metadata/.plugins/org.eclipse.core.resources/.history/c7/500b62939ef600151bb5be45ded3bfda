@@ -1,0 +1,147 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import service.DownloadFile;
+
+public class ReaderPanel extends JFrame implements ActionListener {
+	private static String DEFAULT_FILE_NAME = "demo.pdf";
+    private JButton openLocalFileBtn;
+    private JButton openUrlFileBtn;
+    private JButton exitBtn;
+    private JFileChooser fc = new JFileChooser();
+    private ViewPanel viewPanel;
+
+    public ReaderPanel() {
+        addContent();
+        setDisplay();        
+    }
+     
+    /**
+     * set display for JFrame
+     */
+    private void setDisplay() {
+        setTitle("Pdf Reader");
+        setPreferredSize(new Dimension(Constants.DEFAUT_PANEL_WIDTH, Constants.DEFAUT_PANEL_HEIGHT));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+ 
+    /**
+     * add content for JFrame, JFrame contain a ButtonPane (contain buttons) and
+     * a JTextArea to show something you work
+     * @throws IOException 
+     */
+    private void addContent() {
+        setLayout(new BorderLayout());
+        add(createButtonPanel(), BorderLayout.PAGE_START);
+        viewPanel = new ViewPanel();
+		add(new JScrollPane(viewPanel), BorderLayout.CENTER);
+    }
+ 
+    /**
+     * create a JPanel contain 3 buttons on TOP of JFrame
+     */
+    private JPanel createButtonPanel() {
+        JPanel panel = new JPanel(new FlowLayout());
+        panel.add(openLocalFileBtn = createButton("Open Local File", true));
+        panel.add(openUrlFileBtn = createButton("Open Url", true));
+        panel.add(exitBtn = createButton("Quit", true));
+        return panel;
+    }
+ 
+    /**
+     * create a JButton with text and icon and add Action for it
+     * @param text button text
+     * @param enable button enable option
+     */
+    private JButton createButton(String text, boolean enable) {
+        JButton btn = new JButton(text);
+        btn.addActionListener(this);
+        btn.setEnabled(enable);
+        return btn;
+    }
+
+    /**
+     * handle button click event
+     * @param e action event
+     */
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == openLocalFileBtn) {
+            openFile();
+            return;
+        } else if (e.getSource() == openUrlFileBtn) {
+        	openUrl();
+        	return;
+        } else if (e.getSource() == exitBtn) {
+        	exit();
+            return;
+        } 
+    }
+
+	/**
+     * Handle when you open a url
+     */
+    private void openUrl() {
+    	String url = JOptionPane.showInputDialog(this, "Enter pdf url: ", null);
+    	if (url != null) {
+    		ProgressBarDialog loading = new ProgressBarDialog(this);
+    		loading.createUI();
+    		try {
+    			System.out.print("AFTER DONWLOAD FILE");
+				DownloadFile.download(new URL(url), DEFAULT_FILE_NAME);
+				System.out.print("AFTER DONWLOAD FILE");
+				viewPanel.draw(DEFAULT_FILE_NAME);
+				System.out.print("AFTER READ FILE");
+				loading.close();
+			} catch (MalformedURLException e) {
+				loading.close();
+				JOptionPane.showMessageDialog(null, "Downloading failed!");
+			} catch (Exception e) {
+				loading.close();
+				JOptionPane.showMessageDialog(null, "Input is not PDF file! Choose other one!");
+			}
+    	}
+    	System.out.print("FINISH");
+    }
+
+	/**
+     * Handle when you open a file
+     */
+    private void openFile() {
+        int select = fc.showOpenDialog(this);
+        if (select == JFileChooser.APPROVE_OPTION) {
+        	ProgressBarDialog loading = new ProgressBarDialog(this);
+        	try {
+        		viewPanel.draw(fc.getSelectedFile().getAbsolutePath());
+        		loading.close();
+			} catch (Exception e) {
+				loading.close();
+	        	JOptionPane.showMessageDialog(null, "Input is not PDF file! Choose other one!");
+			}
+        }
+    }
+
+    /**
+     * Handle when you click exit button
+     */
+    private void exit() {
+		setVisible(false);
+		dispose();
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename source module &apos;application/models.post_m.php&apos; to &apos;common_m.php&apos;&#x0A;- Original element: &apos;application/models\post_m.php&apos;&#x0A;- Renamed element: &apos;application/models\common_m.php&apos;" description="Rename source module &apos;post_m.php&apos;" flags="589830" id="org.eclipse.dltk.ui.rename.sourcemodule" input="/&lt;application\/models{post_m.php" name="common_m.php" stamp="1417363345350" version="1.0"/>
+</session>

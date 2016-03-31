@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename source module &apos;application/libraries.Core_smarty.php&apos; to &apos;Smartyci.php&apos;&#x0A;- Original element: &apos;application/libraries\Core_smarty.php&apos;&#x0A;- Renamed element: &apos;application/libraries\Smartyci.php&apos;" description="Rename source module &apos;Core_smarty.php&apos;" flags="589830" id="org.eclipse.dltk.ui.rename.sourcemodule" input="/&lt;application\/libraries{Core_smarty.php" name="Smartyci.php" stamp="1418746243185" version="1.0"/>
+</session>

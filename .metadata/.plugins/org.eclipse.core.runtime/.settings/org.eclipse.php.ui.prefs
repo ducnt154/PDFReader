@@ -1,0 +1,6 @@
+allowMultipleLaunches=never
+eclipse.preferences.version=1
+org.eclipse.php.core.workspaceDefaultLocale=en_US
+switchBackToPHPPerspective=always
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

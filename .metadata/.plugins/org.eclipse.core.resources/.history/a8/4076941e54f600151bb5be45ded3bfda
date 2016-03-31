@@ -1,0 +1,28 @@
+package GUI;
+
+import java.awt.Desktop;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.J
+
+class ViewPanel extends JPanel {
+    public ViewPanel() {
+        setPreferredSize(new Dimension(800, 500));        
+    }
+
+	public void reset() {
+	    removeAll();
+	    repaint();		
+	}
+
+	public void draw(String content) {
+		reset();
+		
+		add(new JLabel(content));
+		JWebBrowser browser = new JWe
+	}
+}

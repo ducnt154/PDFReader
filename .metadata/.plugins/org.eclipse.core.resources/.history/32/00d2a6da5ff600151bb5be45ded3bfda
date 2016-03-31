@@ -1,0 +1,55 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.text.PlainDocument;
+
+import org.apache.pdfbox.io.RandomAccessFile;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.rendering.PDFRenderer;
+
+import service.Parse;
+
+class ViewPanel extends JPanel {
+	private List<BufferedImage> images;
+    public ViewPanel() {
+        setPreferredSize(new Dimension(1050, 800));
+    }
+    
+    public void draw(String path) throws Exception {
+		PDDocument pDoc = PDDocument.load(new File(path));
+		PDFRenderer render = new PDFRenderer(pDoc);
+		int pageNum = Parse.GetPageNum(new File(path));
+		images = new ArrayList<BufferedImage>();
+		for (int index=0; index<pageNum; index++) {
+			images.add(render.renderImage(index));
+		}
+		paintComponent(this.getGraphics());
+    }
+
+	public void reset() {
+	    removeAll();
+	    repaint();		
+	}
+	
+	@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (int index=0; index<images.size(); index++) {
+        	g.drawImage(images.get(index), 0, index * 800, null);
+        }
+    }
+}
